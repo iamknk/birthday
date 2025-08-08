@@ -17,13 +17,20 @@ export default function GalleryPage() {
   const wishes = (data as Wish[]) || [];
   const [active, setActive] = useState<number | null>(null);
 
-  const onKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === "Escape") setActive(null);
-    if (active !== null) {
-      if (e.key === "ArrowRight") setActive((i) => (i === null ? null : Math.min(i + 1, wishes.length - 1)));
-      if (e.key === "ArrowLeft") setActive((i) => (i === null ? null : Math.max(i - 1, 0)));
-    }
-  }, [active, wishes.length]);
+  const onKey = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+      if (active !== null) {
+        if (e.key === "ArrowRight")
+          setActive((i) =>
+            i === null ? null : Math.min(i + 1, wishes.length - 1)
+          );
+        if (e.key === "ArrowLeft")
+          setActive((i) => (i === null ? null : Math.max(i - 1, 0)));
+      }
+    },
+    [active, wishes.length]
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", onKey);
@@ -32,7 +39,9 @@ export default function GalleryPage() {
 
   return (
     <div className="mx-auto max-w-6xl p-6">
-      <h1 className="mb-6 text-3xl font-bold">Photo Wishes</h1>
+      <h1 className="mb-6 text-3xl font-bold">
+        Photos for youuuuuuuuuu (Opennnn them click on themmmmm)
+      </h1>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
         {wishes.map((w, i) => (
@@ -43,11 +52,19 @@ export default function GalleryPage() {
             onClick={() => setActive(i)}
           >
             <div className="relative h-56 w-full">
-              <Image src={w.src} alt={w.alt || w.message} fill className="object-cover" priority={i < 3} />
+              <Image
+                src={w.src}
+                alt={w.alt || w.message}
+                fill
+                className="object-cover"
+                priority={i < 3}
+              />
             </div>
             <div className="p-4 text-left">
               <p className="font-medium">{w.message}</p>
-              {w.from && <p className="mt-1 text-sm text-gray-500">— {w.from}</p>}
+              {w.from && (
+                <p className="mt-1 text-sm text-gray-500">— {w.from}</p>
+              )}
             </div>
           </motion.button>
         ))}
@@ -59,8 +76,14 @@ export default function GalleryPage() {
         item={active !== null ? wishes[active] : null}
         hasPrev={active !== null && active > 0}
         hasNext={active !== null && active < wishes.length - 1}
-        onPrev={() => setActive((i) => (i === null ? null : Math.max(i - 1, 0)))}
-        onNext={() => setActive((i) => (i === null ? null : Math.min(i + 1, wishes.length - 1)))}
+        onPrev={() =>
+          setActive((i) => (i === null ? null : Math.max(i - 1, 0)))
+        }
+        onNext={() =>
+          setActive((i) =>
+            i === null ? null : Math.min(i + 1, wishes.length - 1)
+          )
+        }
       />
     </div>
   );

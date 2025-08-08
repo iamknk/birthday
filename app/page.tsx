@@ -14,7 +14,10 @@ export default function Home() {
     (async () => {
       const confetti = (await import("canvas-confetti")).default;
       confetti({ particleCount: 180, spread: 90, origin: { y: 0.7 } });
-      setTimeout(() => confetti({ particleCount: 120, spread: 80, scalar: 0.8 }), 500);
+      setTimeout(
+        () => confetti({ particleCount: 120, spread: 80, scalar: 0.8 }),
+        500
+      );
     })();
 
     const t = setTimeout(() => setIntroDone(true), 2500);
@@ -29,7 +32,8 @@ export default function Home() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 12 }}
       >
-        Happy Birthday, <span className="text-rose-600">Friend!</span>
+        Happy Birthday,{" "}
+        <span className="text-orange-400"> Elizabeth(wipdaf)</span>
       </motion.h1>
 
       <motion.p
