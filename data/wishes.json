@@ -1,0 +1,32 @@
+[
+  {
+    "src": "/images/sample1.svg",
+    "message": "Here\u2019s to more cake and less alarms!",
+    "from": "Alex"
+  },
+  {
+    "src": "/images/sample2.svg",
+    "message": "You age like fine memes.",
+    "from": "Sam"
+  },
+  {
+    "src": "/images/sample3.svg",
+    "message": "May your day be as awesome as you are!",
+    "from": "Jordan"
+  },
+  {
+    "src": "/images/sample1.svg",
+    "message": "Sending you confetti and carbs!",
+    "from": "Taylor"
+  },
+  {
+    "src": "/images/sample2.svg",
+    "message": "Stay young at heart forever \ud83c\udf88",
+    "from": "Casey"
+  },
+  {
+    "src": "/images/sample3.svg",
+    "message": "Make a wish. Make two.",
+    "from": "Riley"
+  }
+]
